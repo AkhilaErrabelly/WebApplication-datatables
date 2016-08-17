@@ -1,0 +1,312 @@
+
+    <div class="bs-example">
+
+        <ul class="nav nav-tabs">
+
+            <li class="active"><a data-toggle="tab" href="#sectionA">Section A</a></li>
+
+            <li><a data-toggle="tab" href="#sectionB">Section B</a></li>
+
+            <li class="dropdown">
+
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
+
+                <ul class="dropdown-menu">
+
+                    <li><a data-toggle="tab" href="#dropdown1">Dropdown1</a></li>
+
+                    <li><a data-toggle="tab" href="#dropdown2">Dropdown2</a></li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+        <div class="tab-content">
+
+            <div id="sectionA" class="tab-pane fade in active">
+
+                <h3>Section A</h3>
+
+                <div class="adminConfiguration row">
+
+                    <div class="checkBoxholder sectionHeader col-md-12">
+
+                        <div class="checkbox">
+
+                            <label>
+
+       <!-- <input type="checkbox" ng-click = manualClicked($event) ng-true-value = "Manual Selected">
+       -->
+       <input type="checkbox">
+      </label>
+
+                            <label><h3>Manual (One-Time)</h3></label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="sectionContent col-md-12">
+
+                        <div class="col-md-5 datePickerHolder">
+
+                            <div class="col-md-6">
+
+                                <label>Date</label>
+
+                            </div>
+
+                            <p class="input-group col-md-5 col-md-offset-1">
+
+                                <input type="text" class="form-control" ng-model="dt1" is-open="popup1.opened"
+                                    datepicker-options="adminCtrl.dateOptions" ng-required="true" close-text="adminCtrl.Close"
+                                    alt-input-formats="adminCtrl.altInputFormats" />
+
+                                <span class="input-group-btn">
+
+            <!--<button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+            -->
+            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+
+                            </p>
+
+                        </div>
+
+                        <div class="btn-group col-md-6 dropdownHolder">
+
+                            <div class="col-md-5">
+
+                                <label>Time Of the Day : </label>
+
+                            </div>
+
+                            <button id="single-button1" type="button" class="btn dropdownStyle" uib-dropdown-toggle ng-disabled="disabled">
+
+         {{selectedItem || "00 : 00"}}<span class="caret"></span>
+
+      </button>
+
+                            <ul id="timeOfTheDay1" class="col-md-offset-5 dropdownLeftMargin" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+
+                                <li role="menuitem"  ng-repeat="item in timeMenu track by $index"><a href="" >{{item}}</a></li>
+
+                            </ul>
+
+                        </div>
+
+                        <div class="radioHolder col-md-12 col-md-offset-0">
+
+                            <div class="firstRadio col-md-3">
+
+                                <input type="radio" id="radio1" name="radio"/>
+
+                                <span class="c-indicator">Measure-Member-provider File</span>
+
+                                
+
+                            </div>
+
+                            <div class="secondRadio col-md-3">
+
+                                <input type="radio" id="radio2" name="radio"/>
+
+                                <span class="c-indicator">Measure File</span>
+
+                                
+
+                            </div>
+
+                            <div class="thirdRadio col-md-3">
+
+                                <input type="radio" id="radio3" name="radio"/>
+
+                                <span class="c-indicator">Both Files</span>
+
+                                
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="sectionB" class="tab-pane fade">
+
+                <h3>Section B</h3>
+
+                <div class="adminConfiguration confContainer row">
+
+                    <div class="checkBoxholder sectionHeader col-md-12">
+
+                        <div class="checkbox">
+
+                            <label>
+
+        <input type="checkbox" ng-true-value = "Manual Selected"/>
+
+      </label>
+
+                            <label><h3 class="groupHeaderFont">Automatic (Recurring)</h3></label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="sectionContent col-md-12">
+
+                        <div class="subSectionHolder col-md-12 col-md-offset-0">
+
+                            <div class="groupHeaderFont col-md-12">
+
+                                <label>Measure-Member-Provider-File (Monthly)</label>
+
+                            </div>
+
+                            <div class="subSectionComponents col-md-12">
+
+                                <div class="btn-group col-md-6 dropdownHolder" uib-dropdown is-open="status.isopen2">
+
+                                    <div class="col-md-6">
+
+                                        <label>Day of The Month : </label>
+
+                                    </div>
+
+                                    <button id="single-button2" type="button" class="btn dropdownStyle" uib-dropdown-toggle ng-disabled="disabled">
+
+            Select <span class="caret"></span>
+
+          </button>
+
+                                    <ul id="timeOfTheDay2" class="col-md-offset-5 dropdownLeftMargin" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+
+                                        <li role="menuitem" ><a href="">\</a></li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="btn-group col-md-6 dropdownHolder" uib-dropdown is-open="status.isopen3">
+
+                                    <div class="col-md-6">
+
+                                        <label>Time Of the Day : </label>
+
+                                    </div>
+
+                                    <button id="single-button3" type="button" class="btn dropdownStyle" uib-dropdown-toggle ng-disabled="disabled">
+
+            Select <span class="caret"></span>
+
+          </button>
+
+                                    <ul id="timeOfTheDay3" class="col-md-offset-5 dropdownLeftMargin" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+
+                                        <li role="menuitem" ng-repeat="item in timeMenu track by $index"><a href="">{{item}}</a></li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="subSectionHolder col-md-12">
+
+                            <div class="col-md-12 groupHeaderFont">
+
+                                <label>Measure-Member-Provider-File (Monthly)</label>
+
+                            </div>
+
+                            <div class="subSectionComponents col-md-12">
+
+                                <div class="col-md-6 datePickerHolder">
+
+                                    <div class="col-md-6">
+
+                                        <label>Date</label>
+
+                                    </div>
+
+                                    <p class="input-group col-md-5 col-md-offset-1">
+
+                                        <input type="text" class="form-control" is-open="popup3.opened"
+                                            datepicker-options="adminCtrl.dateOptions" ng-required="true" close-text="adminCtrl.Close"
+                                            alt-input-formats="adminCtrl.altInputFormats" />
+
+                                        <span class="input-group-btn">
+
+            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+
+          </span>
+
+                                    </p>
+
+                                </div>
+
+                                <div class="btn-group col-md-6 dropdownHolder" uib-dropdown is-open="status.isopen4">
+
+                                    <div class="col-md-6">
+
+                                        <label>Time Of the Day : </label>
+
+                                    </div>
+
+                                    <button id="single-button4" type="button" class="btn dropdownStyle" uib-dropdown-toggle ng-disabled="disabled">
+
+            Select <span class="caret"></span>
+
+          </button>
+
+                                    <ul id="timeOfTheDay4" class="col-md-offset-5 dropdownLeftMargin" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+
+                                        <li role="menuitem" ng-repeat="item in timeMenu track by $index"><a href="">{{item}}</a></li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="dropdown1" class="tab-pane fade">
+
+                <h3>Dropdown 1</h3>
+
+                <p>WInteger convallis, nulla in sollicitudin placerat, ligula enim auctor lectus, in mollis diam dolor at lorem.
+                    Sed bibendum nibh sit amet dictum feugiat. Vivamus arcu sem, cursus a feugiat ut, iaculis at erat. Donec
+                    vehicula at ligula vitae venenatis. Sed nunc nulla, vehicula non porttitor in, pharetra et dolor. Fusce
+                    nec velit velit. Pellentesque consectetur eros.</p>
+
+            </div>
+
+            <div id="dropdown2" class="tab-pane fade">
+
+                <h3>Dropdown 2</h3>
+
+                <p>Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit. Donec at
+                    erat magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum laoreet.
+                    Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus
+                    imperdiet. Cum sociis natoque penatibus et magnis.</p>
+
+            </div>
+
+        </div>
+
+    </div>
